@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TESTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="Student_id" />
+          </Key>
+          <Property Name="Student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="student_fname" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="student_lname" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="student_mname" Type="varchar" MaxLength="30" />
+          <Property Name="Student_email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="student_phone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="student_alternate_phone" Type="varchar" MaxLength="15" />
+          <Property Name="enrollment_date" Type="datetime" Nullable="false" />
+          <Property Name="selected_course" Type="int" Nullable="false" />
+          <Property Name="years_of_exp" Type="int" Nullable="false" />
+          <Property Name="student_company" Type="varchar" MaxLength="30" />
+          <Property Name="batch_date" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="source_of_joining" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="location" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="TESTModelStoreContainer">
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TESTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Student_id" />
+          </Key>
+          <Property Name="Student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="student_fname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="student_lname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="student_mname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Student_email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="student_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="student_alternate_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="enrollment_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="selected_course" Type="Int32" Nullable="false" />
+          <Property Name="years_of_exp" Type="Int32" Nullable="false" />
+          <Property Name="student_company" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="batch_date" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="source_of_joining" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="location" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="TESTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Students" EntityType="Self.Student" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TESTModelStoreContainer" CdmEntityContainer="TESTEntities">
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="TESTModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+                <ScalarProperty Name="student_fname" ColumnName="student_fname" />
+                <ScalarProperty Name="student_lname" ColumnName="student_lname" />
+                <ScalarProperty Name="student_mname" ColumnName="student_mname" />
+                <ScalarProperty Name="Student_email" ColumnName="Student_email" />
+                <ScalarProperty Name="student_phone" ColumnName="student_phone" />
+                <ScalarProperty Name="student_alternate_phone" ColumnName="student_alternate_phone" />
+                <ScalarProperty Name="enrollment_date" ColumnName="enrollment_date" />
+                <ScalarProperty Name="selected_course" ColumnName="selected_course" />
+                <ScalarProperty Name="years_of_exp" ColumnName="years_of_exp" />
+                <ScalarProperty Name="student_company" ColumnName="student_company" />
+                <ScalarProperty Name="batch_date" ColumnName="batch_date" />
+                <ScalarProperty Name="source_of_joining" ColumnName="source_of_joining" />
+                <ScalarProperty Name="location" ColumnName="location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
